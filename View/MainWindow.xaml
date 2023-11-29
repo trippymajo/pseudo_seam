@@ -1,0 +1,110 @@
+﻿<Window x:Class="PseudoSteam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PseudoSteam"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000"
+		MaxHeight="600" MaxWidth="1000"
+		Background="#FF333333"
+		WindowStartupLocation="CenterScreen"
+		WindowStyle="None">
+	<Window.Resources>
+		<ControlTemplate x:Key="RibbonBtns" TargetType="Button">
+			<!--Add Button template-->
+		</ControlTemplate>
+	</Window.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="300"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height ="80"/>
+			<RowDefinition Height="450"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+
+		<Grid x:Name="MenuBar" Grid.Row="0" Grid.ColumnSpan="1">
+			<Menu Background="{x:Null}">
+				<MenuItem Header="Seam"  Foreground="#FFD6D6D6">
+
+				</MenuItem>
+				<MenuItem Header="View" Foreground="#FFD6D6D6">
+
+				</MenuItem>
+				<MenuItem Header="Friends" Foreground="#FFD6D6D6">
+
+				</MenuItem>
+				<MenuItem Header="Games" Foreground="#FFD6D6D6">
+
+				</MenuItem>
+				<MenuItem Header="Help" Foreground="#FFD6D6D6">
+
+				</MenuItem>
+			</Menu>
+		</Grid>
+
+		<Grid x:Name="ProfileInfo" Grid.Row="0" Grid.Column="1">
+			<Menu HorizontalAlignment="Right" Background="{x:Null}">
+				<MenuItem Header="News.Icon" Foreground="#FFD6D6D6">
+					<!--Add here icon for News-->
+				</MenuItem>
+				<MenuItem Header="Notif.Icon" Foreground="#FFD6D6D6">
+					<!--Add here icon for Notifications-->
+				</MenuItem>
+				<MenuItem Header="AccountName" Foreground="#FFD6D6D6">
+					<!--Add here icon for Profile-->
+				</MenuItem>
+			</Menu>
+		</Grid>
+
+		<Grid x:Name="UpRibbonBar" Grid.Row="1" Grid.ColumnSpan="2">
+			<Border BorderThickness="0, 0, 0, 1" BorderBrush="#FF1F1F1F"/>
+			<StackPanel Orientation="Horizontal">
+				<Button x:Name="storeBtn" Content="Store" Foreground="#FFD6D6D6" 
+						Width="200" Background="{x:Null}"></Button>
+				<Button x:Name="libBtn" Content="Library" Foreground="#FFD6D6D6"
+						Width="200" Background="{x:Null}"></Button>
+				<Button x:Name="comBtn" Content="Community" Foreground="#FFD6D6D6"
+						Width="200" Background="{x:Null}"></Button>
+				<Button x:Name="profileNameBtn" Content="Profile:Name" Foreground="#FFD6D6D6"
+						Width="200" Background="{x:Null}"></Button>
+			</StackPanel>
+		</Grid>
+
+		<Grid x:Name="Library" Grid.Row="2" Grid.Column="0">
+			<Border RenderTransformOrigin="0.5,0.5" Opacity="0.5">
+				<Border.Background>
+					<LinearGradientBrush EndPoint="4,1" StartPoint="0,1">
+						<GradientStop Color="Black"/>
+						<GradientStop Color="#00B9B9B9" Offset="1"/>
+					</LinearGradientBrush>
+				</Border.Background>
+			</Border>
+		</Grid>
+
+		<Grid x:Name="GamePage" Grid.Row="2" Grid.Column="1">
+
+		</Grid>
+
+		<Grid x:Name="LowRibbonBar" Grid.Row="3" Grid.ColumnSpan="2">
+			<Border BorderThickness="0,1,0,0" BorderBrush="#FF1F1F1F"></Border>
+			<Button x:Name="addGameBtn" Content="+ Add Game"
+						Width="200" Background="{x:Null}"
+						HorizontalAlignment="Left" Foreground="#FFD6D6D6">
+			</Button>
+			<Button x:Name="downloadMngrBtn" Content="Download Manager"
+					Width="200" Background="{x:Null}"
+					HorizontalAlignment="Center" Foreground="#FFD6D6D6">
+			</Button>
+			<Button x:Name="friendsBtn" Content="Friends"
+					Width="200" Background="{x:Null}"
+					HorizontalAlignment="Right" Foreground="#FFD6D6D6">
+			</Button>
+		</Grid>
+
+	</Grid>
+</Window>
