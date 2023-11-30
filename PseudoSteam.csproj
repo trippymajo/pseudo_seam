@@ -9,8 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\Res\**" />
+    <EmbeddedResource Remove="Model\Res\**" />
+    <None Remove="Model\Res\**" />
+    <Page Remove="Model\Res\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ModelView\" />
-    <Folder Include="Model\Res\" />
+    <Folder Include="Model\" />
   </ItemGroup>
 
 </Project>

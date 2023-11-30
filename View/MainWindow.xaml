@@ -12,6 +12,29 @@
 		WindowStyle="None">
 	<Window.Resources>
 		<ControlTemplate x:Key="RibbonBtns" TargetType="Button">
+			<Grid x:Name="Btn" Height="30" Margin="5,0,10,0" VerticalAlignment="Center">
+				<Border>
+					<Label Content="{TemplateBinding Content}" Background="Transparent"
+						   FontFamily="Lucida Sans">
+						<Label.Style>
+							<Style TargetType="Label" >
+								<Setter Property="Foreground" Value="#FFD6D6D6"/>
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Btn}" Value="true">
+										<Setter Property="Foreground" Value="White"/>
+									</DataTrigger>
+									<DataTrigger Binding="{Binding RelativeSource={RelativeSource
+                                            Mode=FindAncestor,
+                                            AncestorType={x:Type Button}},
+                                            Path = IsFocused}" Value="true">
+										<Setter Property="Foreground" Value="DodgerBlue"/>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</Label.Style>
+					</Label>
+				</Border>
+			</Grid>
 			<!--Add Button template-->
 		</ControlTemplate>
 	</Window.Resources>
@@ -64,14 +87,10 @@
 		<Grid x:Name="UpRibbonBar" Grid.Row="1" Grid.ColumnSpan="2">
 			<Border BorderThickness="0, 0, 0, 1" BorderBrush="#FF1F1F1F"/>
 			<StackPanel Orientation="Horizontal">
-				<Button x:Name="storeBtn" Content="Store" Foreground="#FFD6D6D6" 
-						Width="200" Background="{x:Null}"></Button>
-				<Button x:Name="libBtn" Content="Library" Foreground="#FFD6D6D6"
-						Width="200" Background="{x:Null}"></Button>
-				<Button x:Name="comBtn" Content="Community" Foreground="#FFD6D6D6"
-						Width="200" Background="{x:Null}"></Button>
-				<Button x:Name="profileNameBtn" Content="Profile:Name" Foreground="#FFD6D6D6"
-						Width="200" Background="{x:Null}"></Button>
+				<Button x:Name="storeBtn" Content="STORE" FontSize ="21" Template="{StaticResource ResourceKey=RibbonBtns}"/>
+				<Button x:Name="libBtn" Content="LIBRARY" FontSize ="21" Template="{StaticResource ResourceKey=RibbonBtns}"/>
+				<Button x:Name="comBtn" Content="COMMUNITY" FontSize ="21" Template="{StaticResource ResourceKey=RibbonBtns}"/>
+				<Button x:Name="profileNameBtn" Content="%ProfileName%" FontSize ="21" Template="{StaticResource ResourceKey=RibbonBtns}"/>
 			</StackPanel>
 		</Grid>
 
@@ -92,18 +111,12 @@
 
 		<Grid x:Name="LowRibbonBar" Grid.Row="3" Grid.ColumnSpan="2">
 			<Border BorderThickness="0,1,0,0" BorderBrush="#FF1F1F1F"></Border>
-			<Button x:Name="addGameBtn" Content="+ Add Game"
-						Width="200" Background="{x:Null}"
-						HorizontalAlignment="Left" Foreground="#FFD6D6D6">
-			</Button>
-			<Button x:Name="downloadMngrBtn" Content="Download Manager"
-					Width="200" Background="{x:Null}"
-					HorizontalAlignment="Center" Foreground="#FFD6D6D6">
-			</Button>
-			<Button x:Name="friendsBtn" Content="Friends"
-					Width="200" Background="{x:Null}"
-					HorizontalAlignment="Right" Foreground="#FFD6D6D6">
-			</Button>
+			<Button x:Name="addGameBtn" Content="+ Add Game" FontSize ="14"
+						HorizontalAlignment="Left" Template="{StaticResource ResourceKey=RibbonBtns}"/>
+			<Button x:Name="downloadMngrBtn" Content="Download Manager" FontSize ="14"
+					HorizontalAlignment="Center" Template="{StaticResource ResourceKey=RibbonBtns}"/>
+			<Button x:Name="friendsBtn" Content="Friends" FontSize ="14"
+					HorizontalAlignment="Right" Template="{StaticResource ResourceKey=RibbonBtns}"/>
 		</Grid>
 
 	</Grid>
